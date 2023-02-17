@@ -10,8 +10,9 @@ public struct BookListModel: Equatable, Identifiable {
     public var bookImage: String = ""
     public var rating: Double = 0
     public var favorite: Bool = false
+    public var date: String = ""
     
-    public init(id: String, title: String, author: String, description: String, bookImage: String, rating: Double, favorite: Bool) {
+    public init(id: String, title: String, author: String, description: String, bookImage: String, rating: Double, favorite: Bool, date: String) {
         self.id = id
         self.title = title
         self.author = author
@@ -19,6 +20,7 @@ public struct BookListModel: Equatable, Identifiable {
         self.bookImage = bookImage
         self.rating = rating
         self.favorite = favorite
+        self.date = date
     }
     
 }

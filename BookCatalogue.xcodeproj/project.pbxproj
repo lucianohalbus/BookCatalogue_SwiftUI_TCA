@@ -17,6 +17,7 @@
 		CB4394E128B069B100283BC7 /* BookListReducer.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB4394E028B069B100283BC7 /* BookListReducer.swift */; };
 		CB4394E328B069BB00283BC7 /* BookListEnvironment.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB4394E228B069BB00283BC7 /* BookListEnvironment.swift */; };
 		CB4394E528B134C900283BC7 /* BookListModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB4394E428B134C900283BC7 /* BookListModel.swift */; };
+		CB6F8ED8299F125D001DE7DF /* AppServiceLogs.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB6F8ED7299F125D001DE7DF /* AppServiceLogs.swift */; };
 		CBF66CD429998E7100CF245D /* BookAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBF66CD329998E7100CF245D /* BookAPI.swift */; };
 		CBF66CD72999AAB300CF245D /* NetworkProxy.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBF66CD62999AAB300CF245D /* NetworkProxy.swift */; };
 		CBF66CD92999AB3100CF245D /* Network.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBF66CD82999AB3100CF245D /* Network.swift */; };
@@ -40,6 +41,8 @@
 		CB4394E028B069B100283BC7 /* BookListReducer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookListReducer.swift; sourceTree = "<group>"; };
 		CB4394E228B069BB00283BC7 /* BookListEnvironment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookListEnvironment.swift; sourceTree = "<group>"; };
 		CB4394E428B134C900283BC7 /* BookListModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookListModel.swift; sourceTree = "<group>"; };
+		CB6F8ED7299F125D001DE7DF /* AppServiceLogs.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppServiceLogs.swift; sourceTree = "<group>"; };
+		CBD69130299B24E300AB453C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		CBF66CD329998E7100CF245D /* BookAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookAPI.swift; sourceTree = "<group>"; };
 		CBF66CD62999AAB300CF245D /* NetworkProxy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkProxy.swift; sourceTree = "<group>"; };
 		CBF66CD82999AB3100CF245D /* Network.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Network.swift; sourceTree = "<group>"; };
@@ -83,6 +86,7 @@
 		CB4394CA28B067E000283BC7 /* BookCatalogue */ = {
 			isa = PBXGroup;
 			children = (
+				CBD69130299B24E300AB453C /* Info.plist */,
 				CB4394CB28B067E100283BC7 /* BookCatalogueApp.swift */,
 				CBF66CD129998DE200CF245D /* BookList */,
 				CB4394CF28B067E100283BC7 /* Assets.xcassets */,
@@ -111,6 +115,7 @@
 				CB4394E228B069BB00283BC7 /* BookListEnvironment.swift */,
 				CBF66CD529998E7700CF245D /* BookAPI */,
 				CBF66CE52999C1FE00CF245D /* BookListClient.swift */,
+				CB6F8ED7299F125D001DE7DF /* AppServiceLogs.swift */,
 			);
 			path = BookList;
 			sourceTree = "<group>";
@@ -226,6 +231,7 @@
 				CBF66CE42999B4BA00CF245D /* BookListService.swift in Sources */,
 				CB4394DF28B069A000283BC7 /* BookListAction.swift in Sources */,
 				CB4394CE28B067E100283BC7 /* BookListView.swift in Sources */,
+				CB6F8ED8299F125D001DE7DF /* AppServiceLogs.swift in Sources */,
 				CB4394E328B069BB00283BC7 /* BookListEnvironment.swift in Sources */,
 				CBF66CE62999C1FE00CF245D /* BookListClient.swift in Sources */,
 				CBF66CE82999C6D200CF245D /* BookSearchView.swift in Sources */,
@@ -370,7 +376,7 @@
 				DEVELOPMENT_TEAM = 5C55LM56SH;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_FILE = BookCatalogue/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
@@ -382,6 +388,9 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = halbus.BookCatalogue;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = YES;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -399,7 +408,7 @@
 				DEVELOPMENT_TEAM = 5C55LM56SH;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_FILE = BookCatalogue/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
@@ -411,6 +420,9 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = halbus.BookCatalogue;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = YES;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";

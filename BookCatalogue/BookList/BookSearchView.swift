@@ -9,11 +9,11 @@ struct BookSearchView: View {
     var body: some View {
         WithViewStore(store) { viewStore in
             VStack(alignment: .trailing) {
-
+                
                 searchTextField
                 
                 bookList
-               
+                
                 
             }
             .padding(.horizontal, 5)
@@ -66,48 +66,44 @@ struct BookSearchView: View {
             List {
                 Section {
                     ForEach(viewStore.bookList) { item in
-                        VStack(alignment: .leading) {
-                            
-                            HStack {
-                                
-                                AsyncImage(
-                                            url: URL(string: item.bookImage),
-                                            transaction: Transaction(animation: .easeInOut)
-                                        ) { phase in
-                                            switch phase {
-                                            case .empty:
-                                                ProgressView()
-                                            case .success(let image):
-                                                image
-                                                    .resizable()
-                                                    .transition(.scale(scale: 0.1, anchor: .center))
-                                            case .failure:
-                                                Image(systemName: "wifi.slash")
-                                            @unknown default:
-                                                EmptyView()
-                                            }
-                                        }
-                                        .frame(width: 44, height: 44)
-                                        .background(Color.gray)
-                                        .clipShape(Circle())
-                                
-
+                        VStack {
+                            HStack(alignment: .top) {
                                 VStack {
+                                    AsyncImage(
+                                        url: URL(
+                                            string: item.bookImage
+                                        ),
+                                        content: { image in
+                                            image
+                                                .resizable()
+                                                .scaledToFit()
+                                        },
+                                        placeholder: {
+                                            ProgressView()
+                                        }
+                                    )
+                                }
+                                
+                                VStack(alignment: .leading) {
                                     Text(item.title)
-                                        .font(.title)
-                                        .foregroundColor(.black)
-                                    Text(item.author)
                                         .font(.title3)
                                         .foregroundColor(.black)
+                                        .lineLimit(3)
+                                    Text(item.author)
+                                        .font(.subheadline)
+                                        .foregroundColor(.black)
+                                        .lineLimit(3)
+                                    Text(item.date)
+                                        .font(.subheadline)
+                                        .foregroundColor(.black)
+                                        .lineLimit(3)
                                 }
                             }
-
+                            
                             Text(item.description)
                                 .foregroundColor(.black)
                                 .font(.headline)
-                                .lineLimit(nil)
-                            
-                            Spacer()
+                                .lineLimit(5)
                             
                             HStack {
                                 Text("\(item.rating, specifier: "%.1f")")
@@ -118,8 +114,8 @@ struct BookSearchView: View {
                                 Image(systemName: item.favorite ?  "checkmark.square" : "square")
                             }
                         }
+                        .listRowSeparator(.hidden)
                     }
-                    .listRowSeparator(.hidden)
                 }
                 .listRowInsets(EdgeInsets())
                 .frame(maxWidth: .infinity)
@@ -148,11 +144,3 @@ struct BookSearchView_Previews: PreviewProvider {
         )
     }
 }
-
-
-
-
-
-
-
-

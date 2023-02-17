@@ -43,6 +43,7 @@ let bookReducer: BookListReducer = BookListReducer.combine(
             return .none
             
         case .fetchbookList:
+            state.bookList = []
             let term: String = state.title
             return env.client.fetchBookList(term)
                 .receive(on: env.mainQueue)
@@ -55,6 +56,7 @@ let bookReducer: BookListReducer = BookListReducer.combine(
             return .none
             
         case let .fetchBookListResponse(.failure(error)):
+            print(error)
             return .none
             
             

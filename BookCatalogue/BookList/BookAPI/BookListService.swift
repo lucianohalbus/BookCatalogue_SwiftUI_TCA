@@ -10,7 +10,7 @@ public protocol BookListServiceProtocol {
 public final class BookListService: BookListServiceProtocol {
     public static func fetchBookList(_ term: String, completion: @escaping (Result<[BookListModel], Error>) -> Void) {
         
-        let bookListProvider: BookListProviderProtocol = BookListProvider()
+        let bookListProvider: BookListProviderProtocol = BookListProvider(debug: AppServiceLogs.API_BOOKS)
         
         Task { @MainActor in
             do {
