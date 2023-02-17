@@ -17,6 +17,7 @@ struct BookSearchView: View {
 
                 }
             }
+            .frame(maxWidth: .infinity, maxHeight: .infinity)
             .background {
                 Color("mainBackground")
                     .ignoresSafeArea()
@@ -66,26 +67,25 @@ struct BookSearchView: View {
                                     ProgressView()
                                 }
                             )
-
+                            
                             VStack(alignment: .leading) {
                                 Text(item.title)
-                                    .font(.title3)
+                                    .font(.headline)
                                     .foregroundColor(.black)
-                                    .lineLimit(3)
+                                    .padding(.bottom, 5)
                                 Text(item.author)
                                     .font(.subheadline)
                                     .foregroundColor(.black)
-                                    .lineLimit(3)
                                 Text(item.date)
                                     .font(.subheadline)
                                     .foregroundColor(.black)
+                                    .padding(.bottom, 5)
+                                Text(item.description)
+                                    .foregroundColor(.black)
+                                    .font(.caption)
+                                    .lineLimit(5)
                             }
                         }
-                        
-                        Text(item.description)
-                            .foregroundColor(.black)
-                            .font(.headline)
-                            .lineLimit(5)
                         
                         HStack {
                             Spacer()
@@ -101,10 +101,17 @@ struct BookSearchView: View {
                     }
                     .padding(.top, 16)
                 }
+                .listRowSeparatorTint(Color("mainBackground"))
             }
-            .edgesIgnoringSafeArea(.all)
-            .listStyle(PlainListStyle())
+            .safeAreaInset(edge: .bottom) {
+                Text("Book Catalogue")
+                    .font(.largeTitle)
+                    .foregroundColor(Color("mainBackground"))
+            }
+            .listStyle(.plain)
             .frame(maxWidth: .infinity)
+            .overlay(RoundedRectangle(cornerRadius: 0)
+                .strokeBorder(Color("mainBackground"), lineWidth: 2))
         }
     }
 }

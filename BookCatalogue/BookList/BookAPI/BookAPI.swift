@@ -36,7 +36,7 @@ extension BookListAPI: Fetcher {
     var path: String {
         switch self {
         case let .fetch(term):
-            return "https://www.googleapis.com/books/v1/volumes?q=\(term)"
+            return "https://www.googleapis.com/books/v1/volumes?q=\(term)&maxResults=\(20)&orderBy=newest"
         }
     }
     

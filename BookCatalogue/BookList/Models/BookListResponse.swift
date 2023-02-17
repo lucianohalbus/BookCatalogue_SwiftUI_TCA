@@ -76,7 +76,7 @@ public struct BookListResponse: APICodable, Equatable {
                 
                 bookListModel.append(book)
                 
-                if bookListModel.count == 10 {
+                if bookListModel.count == 20 {
                     return bookListModel
                 }
             }

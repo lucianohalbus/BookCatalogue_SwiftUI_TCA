@@ -12,7 +12,7 @@ public final class BookListService: BookListServiceProtocol {
         
         let bookListProvider: BookListProviderProtocol = BookListProvider(debug: AppServiceLogs.API_BOOKS)
         
-        Task { @MainActor in
+        Task {
             do {
                 let bookListResponse: BookListResponse = try await bookListProvider.fetchBookList(term)
                 let bookListModel: [BookListModel] = bookListResponse.toBookListModel(bookListResponse)
