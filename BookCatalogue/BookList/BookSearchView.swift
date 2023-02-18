@@ -12,14 +12,13 @@ struct BookSearchView: View {
                 VStack {
                     
                     searchTextField
-                    
+
                     bookList
 
                 }
             }
-            .frame(maxWidth: .infinity, maxHeight: .infinity)
             .background {
-                Color("mainBackground")
+                Color.black
                     .ignoresSafeArea()
             }
         }
@@ -30,88 +29,87 @@ struct BookSearchView: View {
             HStack {
                 TextField("Search a book title", text: viewStore.binding(
                     get: \.title,
-                    send: BookListAction.setTitle))
-                
+                    send: BookListAction.setTitle)
+                )
+                .foregroundColor(Color("ButtonForeground"))
+ 
                 Button( action: {
                     viewStore.send(.fetchbookList)
                 }) {
                     Image(systemName: "magnifyingglass")
                         .resizable()
                         .frame(width: 20, height: 20)
-                        .foregroundColor(Color.gray)
+                        .foregroundColor(Color.white)
                 }
             }
             .frame(maxWidth: .infinity)
             .frame(height: 50)
             .padding(.horizontal)
             .overlay(RoundedRectangle(cornerRadius: 20)
-                .strokeBorder(Color.blue, lineWidth: 2))
+                .strokeBorder(Color("ButtonForeground"), lineWidth: 1))
             .padding(.horizontal)
         }
     }
     
     var bookList: some View {
         WithViewStore(store) { viewStore in
-            List {
-                ForEach(viewStore.bookList) { item in
-                    VStack(alignment: .leading) {
-                        HStack(alignment: .top) {
-                            AsyncImage(
-                                url: URL(
-                                    string: item.bookImage
-                                ),
-                                content: { image in
-                                    image
-                                },
-                                placeholder: {
-                                    ProgressView()
+            VStack {
+                ScrollView {
+                    ForEach(viewStore.bookList) { item in
+                        VStack(alignment: .leading) {
+                            HStack(alignment: .top) {
+                                AsyncImage(
+                                    url: URL(
+                                        string: item.bookImage
+                                    ),
+                                    content: { image in
+                                        image
+                                    },
+                                    placeholder: {
+                                        ProgressView()
+                                    }
+                                )
+                                
+                                VStack(alignment: .leading) {
+                                    Text(item.title)
+                                        .font(.headline)
+                                        .foregroundColor(Color("ButtonForeground"))
+                                        .padding(.bottom, 5)
+                                    Text(item.author)
+                                        .font(.subheadline)
+                                        .foregroundColor(Color("ButtonForeground"))
+                                    Text(item.date)
+                                        .font(.subheadline)
+                                        .foregroundColor(Color("ButtonForeground"))
+                                        .padding(.bottom, 5)
+                                    Text(item.description)
+                                        .foregroundColor(Color("ButtonForeground"))
+                                        .font(.caption)
+                                        .lineLimit(5)
                                 }
-                            )
-                            
-                            VStack(alignment: .leading) {
-                                Text(item.title)
-                                    .font(.headline)
-                                    .foregroundColor(.black)
-                                    .padding(.bottom, 5)
-                                Text(item.author)
-                                    .font(.subheadline)
-                                    .foregroundColor(.black)
-                                Text(item.date)
-                                    .font(.subheadline)
-                                    .foregroundColor(.black)
-                                    .padding(.bottom, 5)
-                                Text(item.description)
-                                    .foregroundColor(.black)
-                                    .font(.caption)
-                                    .lineLimit(5)
                             }
+                            
+                            HStack {
+                                Spacer()
+                                Text("\(item.rating, specifier: "%.1f")")
+                                    .font(.title3)
+                                    .foregroundColor(Color("ButtonForeground"))
+                                
+                                Spacer()
+                                
+                                Image(systemName: item.favorite ?  "checkmark.square" : "square")
+                                    .foregroundColor(Color("ButtonForeground"))
+                                Spacer()
+                            }
+                            .padding(.vertical, 8)
                         }
                         
-                        HStack {
-                            Spacer()
-                            Text("\(item.rating, specifier: "%.1f")")
-                                .font(.title3)
-                            
-                            Spacer()
-                            
-                            Image(systemName: item.favorite ?  "checkmark.square" : "square")
-                            Spacer()
-                        }
-                        .padding(.top, 4)
+                        Divider()
+                            .background(Color.white)
                     }
-                    .padding(.top, 16)
                 }
-                .listRowSeparatorTint(Color("mainBackground"))
             }
-            .safeAreaInset(edge: .bottom) {
-                Text("Book Catalogue")
-                    .font(.largeTitle)
-                    .foregroundColor(Color("mainBackground"))
-            }
-            .listStyle(.plain)
-            .frame(maxWidth: .infinity)
-            .overlay(RoundedRectangle(cornerRadius: 0)
-                .strokeBorder(Color("mainBackground"), lineWidth: 2))
+            .padding(16)
         }
     }
 }

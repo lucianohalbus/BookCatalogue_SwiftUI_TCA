@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		CB4394CC28B067E100283BC7 /* BookCatalogueApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB4394CB28B067E100283BC7 /* BookCatalogueApp.swift */; };
-		CB4394CE28B067E100283BC7 /* BookListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB4394CD28B067E100283BC7 /* BookListView.swift */; };
 		CB4394D028B067E100283BC7 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CB4394CF28B067E100283BC7 /* Assets.xcassets */; };
 		CB4394D328B067E100283BC7 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CB4394D228B067E100283BC7 /* Preview Assets.xcassets */; };
 		CB4394DB28B0680B00283BC7 /* ComposableArchitecture in Frameworks */ = {isa = PBXBuildFile; productRef = CB4394DA28B0680B00283BC7 /* ComposableArchitecture */; };
@@ -18,6 +17,7 @@
 		CB4394E328B069BB00283BC7 /* BookListEnvironment.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB4394E228B069BB00283BC7 /* BookListEnvironment.swift */; };
 		CB4394E528B134C900283BC7 /* BookListModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB4394E428B134C900283BC7 /* BookListModel.swift */; };
 		CB6F8ED8299F125D001DE7DF /* AppServiceLogs.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB6F8ED7299F125D001DE7DF /* AppServiceLogs.swift */; };
+		CB6F8EDB29A00025001DE7DF /* FilterButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB6F8EDA29A00025001DE7DF /* FilterButton.swift */; };
 		CBF66CD429998E7100CF245D /* BookAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBF66CD329998E7100CF245D /* BookAPI.swift */; };
 		CBF66CD72999AAB300CF245D /* NetworkProxy.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBF66CD62999AAB300CF245D /* NetworkProxy.swift */; };
 		CBF66CD92999AB3100CF245D /* Network.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBF66CD82999AB3100CF245D /* Network.swift */; };
@@ -33,7 +33,6 @@
 /* Begin PBXFileReference section */
 		CB4394C828B067E000283BC7 /* BookCatalogue.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BookCatalogue.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CB4394CB28B067E100283BC7 /* BookCatalogueApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookCatalogueApp.swift; sourceTree = "<group>"; };
-		CB4394CD28B067E100283BC7 /* BookListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookListView.swift; sourceTree = "<group>"; };
 		CB4394CF28B067E100283BC7 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		CB4394D228B067E100283BC7 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		CB4394DC28B0699100283BC7 /* BookListState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookListState.swift; sourceTree = "<group>"; };
@@ -42,6 +41,7 @@
 		CB4394E228B069BB00283BC7 /* BookListEnvironment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookListEnvironment.swift; sourceTree = "<group>"; };
 		CB4394E428B134C900283BC7 /* BookListModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookListModel.swift; sourceTree = "<group>"; };
 		CB6F8ED7299F125D001DE7DF /* AppServiceLogs.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppServiceLogs.swift; sourceTree = "<group>"; };
+		CB6F8EDA29A00025001DE7DF /* FilterButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterButton.swift; sourceTree = "<group>"; };
 		CBD69130299B24E300AB453C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		CBF66CD329998E7100CF245D /* BookAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookAPI.swift; sourceTree = "<group>"; };
 		CBF66CD62999AAB300CF245D /* NetworkProxy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkProxy.swift; sourceTree = "<group>"; };
@@ -103,19 +103,35 @@
 			path = "Preview Content";
 			sourceTree = "<group>";
 		};
+		CB6F8ED9299FFFDE001DE7DF /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				CB6F8ED7299F125D001DE7DF /* AppServiceLogs.swift */,
+			);
+			path = Utils;
+			sourceTree = "<group>";
+		};
+		CB6F8EDC29A0002C001DE7DF /* Components */ = {
+			isa = PBXGroup;
+			children = (
+				CB6F8EDA29A00025001DE7DF /* FilterButton.swift */,
+			);
+			path = Components;
+			sourceTree = "<group>";
+		};
 		CBF66CD129998DE200CF245D /* BookList */ = {
 			isa = PBXGroup;
 			children = (
 				CBF66CD229998E2D00CF245D /* Models */,
-				CB4394CD28B067E100283BC7 /* BookListView.swift */,
 				CBF66CE72999C6D200CF245D /* BookSearchView.swift */,
 				CB4394DC28B0699100283BC7 /* BookListState.swift */,
+				CBF66CE52999C1FE00CF245D /* BookListClient.swift */,
 				CB4394DE28B069A000283BC7 /* BookListAction.swift */,
 				CB4394E028B069B100283BC7 /* BookListReducer.swift */,
 				CB4394E228B069BB00283BC7 /* BookListEnvironment.swift */,
 				CBF66CD529998E7700CF245D /* BookAPI */,
-				CBF66CE52999C1FE00CF245D /* BookListClient.swift */,
-				CB6F8ED7299F125D001DE7DF /* AppServiceLogs.swift */,
+				CB6F8ED9299FFFDE001DE7DF /* Utils */,
+				CB6F8EDC29A0002C001DE7DF /* Components */,
 			);
 			path = BookList;
 			sourceTree = "<group>";
@@ -228,9 +244,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				CBF66CD92999AB3100CF245D /* Network.swift in Sources */,
+				CB6F8EDB29A00025001DE7DF /* FilterButton.swift in Sources */,
 				CBF66CE42999B4BA00CF245D /* BookListService.swift in Sources */,
 				CB4394DF28B069A000283BC7 /* BookListAction.swift in Sources */,
-				CB4394CE28B067E100283BC7 /* BookListView.swift in Sources */,
 				CB6F8ED8299F125D001DE7DF /* AppServiceLogs.swift in Sources */,
 				CB4394E328B069BB00283BC7 /* BookListEnvironment.swift in Sources */,
 				CBF66CE62999C1FE00CF245D /* BookListClient.swift in Sources */,
@@ -301,7 +317,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 15.5;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -355,7 +371,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 15.5;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
