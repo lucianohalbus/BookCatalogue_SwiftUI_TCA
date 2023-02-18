@@ -33,14 +33,12 @@ struct BookSearchView: View {
                 )
                 .foregroundColor(Color("ButtonForeground"))
  
-                Button( action: {
-                    viewStore.send(.fetchbookList)
-                }) {
+            
                     Image(systemName: "magnifyingglass")
                         .resizable()
                         .frame(width: 20, height: 20)
                         .foregroundColor(Color.white)
-                }
+                
             }
             .frame(maxWidth: .infinity)
             .frame(height: 50)

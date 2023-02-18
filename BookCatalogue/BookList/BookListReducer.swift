@@ -13,7 +13,9 @@ let bookReducer: BookListReducer = BookListReducer.combine(
             
         case let .setTitle(value):
             state.title = value
-            return .none
+            struct EnterTerm: Hashable {}
+            return Effect(value: .fetchbookList)
+                .debounce(id: EnterTerm(), for: 1.0, scheduler: env.mainQueue)
             
         case let .setAuthor(value):
             state.author = value
@@ -21,25 +23,6 @@ let bookReducer: BookListReducer = BookListReducer.combine(
             
         case let .setDescription(value):
             state.description = value
-            return .none
-            
-        case .addNewBook:
-//            let model: BookListModel = BookListModel(
-//                id: "",
-//                title: state.title,
-//                author: state.author,
-//                description: state.description,
-//                bookImage: URL(string: ""),
-//                rating: state.rating,
-//                favorite: state.favorite
-//            )
-            
-//            state.bookList.append(model)
-//
-//            state.author = ""
-//            state.title = ""
-//            state.description = ""
-
             return .none
             
         case .fetchbookList:
